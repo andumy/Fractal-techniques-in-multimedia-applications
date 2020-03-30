@@ -18,6 +18,7 @@ clear all;
 clc;
 % start GUI
 fig = openfig('controll.fig')
+axesHandle = findall(fig, 'type', 'axes');
 %%%%%%%%%%%%
 
 %%%%%%%%%%%% Fractal selection
@@ -35,8 +36,10 @@ switch selected_fractal
         Koch
     case 'Heighway'
         Heighway
-    case 'Sierpinsky'
+    case 'Sierpinski'
         Sierpinski
+    case 'Barnsley'
+        Barnsley
 end
 
 
@@ -45,8 +48,7 @@ for curr_iteration=2:n
 
     prev_iteration = curr_iteration-1;
     %define a new starting point for a new iteration
-    x{curr_iteration} = [0
-                         0];
+    x{curr_iteration} = x{prev_iteration}(:,1)
 
     %for each previous point compute the new points using the 
     %Iterative Function System
@@ -67,36 +69,28 @@ for curr_iteration=2:n
     end
 end
 
+
 while 1
     if(autoplay == 1)
         for i=1:size(x,2)
-            figure(1);
-            clf;
-            xlim([-0.2 1.2]);
-            ylim([-0.2 0.4]);
-            line(x{i}(1,:),x{i}(2,:));
+            cla(axesHandle);
+            line(axesHandle,x{i}(1,:),x{i}(2,:));
             pause(.2);
             if(autoplay == 0)
                 break
             end
         end
         for i=size(x,2):-1:1
-            figure(1);
-            clf;
-            xlim([-0.2 1.2]);
-            ylim([-0.2 0.4]);
-            line(x{i}(1,:),x{i}(2,:));
+            cla(axesHandle);
+            line(axesHandle,x{i}(1,:),x{i}(2,:));
             pause(.2);
             if(autoplay == 0)
                 break
             end
         end
     else
-        figure(1);
-        clf;
-        xlim([-0.2 1.2]);
-        ylim([-0.2 0.4]);
-        line(x{n}(1,:),x{n}(2,:));
+        cla(axesHandle);
+        line(axesHandle,x{i}(1,:),x{i}(2,:));
         uiwait(fig);
     end
 end

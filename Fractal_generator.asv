@@ -18,8 +18,10 @@ clear all;
 clc;
 % start GUI
 fig = openfig('controll.fig')
-%%%%%%%%%%%%
 
+%axes(handle.gui_plot)
+%%%%%%%%%%%%
+%%
 %%%%%%%%%%%% Fractal selection
 % wait for user input
 while exist('selected_fractal','var') ~= 1
@@ -28,7 +30,7 @@ end
 %%%%%%%%%%%%
 
 %%%%%%%%%%%% Initial setup & load
-n=1;
+n=8;
 autoplay = 1;
 switch selected_fractal
     case 'Koch'
@@ -66,7 +68,8 @@ for curr_iteration=2:n
         end
     end
 end
-    
+
+
 while 1
     if(autoplay == 1)
         for i=1:size(x,2)
@@ -75,7 +78,21 @@ while 1
             xlim([-0.2 1.2]);
             ylim([-0.2 0.4]);
             line(x{i}(1,:),x{i}(2,:));
-            pause(0.3);
+            pause(.2);
+            if(autoplay == 0)
+                break
+            end
+        end
+        for i=size(x,2):-1:1
+            figure(1);
+            clf;
+            xlim([-0.2 1.2]);
+            ylim([-0.2 0.4]);
+            line(x{i}(1,:),x{i}(2,:));
+            pause(.2);
+            if(autoplay == 0)
+                break
+            end
         end
     else
         figure(1);

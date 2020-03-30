@@ -22,7 +22,7 @@ function varargout = controll(varargin)
 
 % Edit the above text to modify the response to help controll
 
-% Last Modified by GUIDE v2.5 30-Mar-2020 21:34:39
+% Last Modified by GUIDE v2.5 30-Mar-2020 22:46:38
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -110,7 +110,7 @@ function slider1_Callback(hObject, eventdata, handles)
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 val=round(hObject.Value);
 hObject.Value=val;
-assignin('base','n', val);
+assignin('base','i', val);
 uiresume();
 
 % --- Executes during object creation, after setting all properties.
@@ -141,3 +141,13 @@ assignin('base','autoplay', hObject.Value);
 uiresume();
 
 % Hint: get(hObject,'Value') returns toggle state of checkbox1
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+selected_fractal = 'Barnsley';
+assignin('base','selected_fractal', selected_fractal);
+uiresume();
