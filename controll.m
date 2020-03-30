@@ -22,7 +22,7 @@ function varargout = controll(varargin)
 
 % Edit the above text to modify the response to help controll
 
-% Last Modified by GUIDE v2.5 30-Mar-2020 22:46:38
+% Last Modified by GUIDE v2.5 31-Mar-2020 01:21:35
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -78,8 +78,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-selected_fractal = 'Koch';
-assignin('base','selected_fractal', selected_fractal);
+assignin('base','selected_fractal', 'Koch');
 uiresume();
 
 % --- Executes on button press in pushbutton2.
@@ -87,8 +86,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-selected_fractal = 'Heighway';
-assignin('base','selected_fractal', selected_fractal);
+assignin('base','selected_fractal', 'Heighway');
 uiresume();
 
 % --- Executes on button press in pushbutton3.
@@ -96,8 +94,7 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-selected_fractal = 'Sierpinski';
-assignin('base','selected_fractal', selected_fractal);
+assignin('base','selected_fractal', 'Sierpinski');
 uiresume();
 
 % --- Executes on slider movement.
@@ -148,6 +145,5 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-selected_fractal = 'Barnsley';
-assignin('base','selected_fractal', selected_fractal);
+assignin('base','selected_fractal', 'Carpet');
 uiresume();
